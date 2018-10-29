@@ -7,3 +7,5 @@
 - (진행중) markdown 문법을 지원한다.
 
 <img width="1652" alt="2018-10-27 4 56 08" src="https://user-images.githubusercontent.com/19392136/47601337-c0dbef00-da09-11e8-9199-62ad0e22daf8.png">
+
+![image](https://user-images.githubusercontent.com/19392136/47654564-6a6bdd80-dbce-11e8-9870-f0b74c297137.png)
