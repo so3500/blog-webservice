@@ -4,6 +4,7 @@ import hackday.blogengine.evernote.dto.Evernote;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.safety.Whitelist;
 
 import com.evernote.auth.EvernoteAuth;
 import com.evernote.clients.ClientFactory;
@@ -96,7 +97,9 @@ public class NoteService {
     }
 
     private String parsingHtml(String content) {
-        Document doc = Jsoup.parse(content);
-        return doc.text();
+        // get pretty printed html with preserved br and p tags
+        String prettyPrintedBodyFragment = Jsoup.clean(content, "", Whitelist.none().addTags("br", "p"), new Document.OutputSettings().prettyPrint(true));
+        // get plain text with preserved line breaks by disabled prettyPrint
+        return Jsoup.clean(prettyPrintedBodyFragment, "", Whitelist.none(), new Document.OutputSettings().prettyPrint(false));
     }
 }
